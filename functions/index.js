@@ -10,10 +10,15 @@
 const {onRequest} = require("firebase-functions/v2/https");
 const logger = require("firebase-functions/logger");
 
-// Create and deploy your first functions
-// https://firebase.google.com/docs/functions/get-started
+const nombreAléatoire = ()=>{
 
-// exports.helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+    let rand = Math.floor(Math.random()*100).toString();
+
+    return rand;
+}
+
+
+ exports.apir = onRequest((request, response) => {
+   logger.info("Hello logs!", {structuredData: true});
+   response.send(nombreAléatoire());
+ });
