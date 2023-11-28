@@ -5,6 +5,9 @@ const {getFirestore} = require("firebase-admin/firestore");
 const {initializeApp} = require("firebase-admin/app");
 initializeApp();
 exports.getCollection = onRequest(async (req, res) => {
+
+  res.set('Access-Control-Allow-Origin', '*');
+  res.set('Access-Control-Allow-Methods', 'GET');
   // Get a reference to the "cartes" collection
   const cartesRef = getFirestore().collection("cartes");
   // Get all documents from the "cartes" collection
